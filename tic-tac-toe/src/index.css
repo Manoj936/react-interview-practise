@@ -1,0 +1,36 @@
+.container {
+  max-width: calc(5 * 100px);
+  margin: 0 auto;
+  text-align: center;
+}
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+.blocks {
+  max-width: 150px;
+  height: 100px;
+  padding: 20px;
+  border:2px solid #ccc;
+  margin: 3px;
+  transition: background-color 0.5s ease-in-out;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.reset{
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  font-size: medium;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 2rem;
+}
