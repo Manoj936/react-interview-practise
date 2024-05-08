@@ -1,0 +1,25 @@
+.container {
+  max-width: calc(5 * 100px);
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 3rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 3px;
+}
+.cell {
+  width: 150px;
+  height: 150px;
+  padding:5px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  background-color: white;
+}
+.active{
+  background-color: green;
+}
+.cell:hover{
+  cursor: pointer;
+}
