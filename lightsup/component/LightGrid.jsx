@@ -31,8 +31,7 @@ export default function LightGrid() {
           clearInterval(interval);
           return prevVal;
         });
-      }, 1000);
-      
+      }, 1000); 
     }
   }, [checkLight]);
 
