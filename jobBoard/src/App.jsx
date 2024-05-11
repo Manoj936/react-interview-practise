@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect, useRef } from "react";
+import "./App.css";
+import JobCard from "./components/JobCard";
+
+const JOB_STORIES_IDS_API =
+  "https://hacker-news.firebaseio.com/v0/jobstories.json";
+
+const JOB_STORIES_DETAILS_API = "https://hacker-news.firebaseio.com/v0/item/";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [jobs, setJobs] = useState([]);
+  const [btnText, setBtnText] = useState("Load More");
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsIds = useRef([]);
+  const itemsPerPage = 6;
+
+  useEffect(() => {
+    fetchStoriesId();
+  }, []);
+
+  const fetchStoriesId = async () => {
+    const storyIds = await fetch(JOB_STORIES_IDS_API);
+    let allTheStories = await storyIds.json();
+    itemsIds.current = await allTheStories;
+    fetchJobs();
+  };
+
+  const fetchJobs = async () => {
+    console.log({currentPage})
+    setBtnText("fetching...");
+    let tempJobIds;
+    tempJobIds = itemsIds.current.slice(
+      currentPage * itemsPerPage,
+      currentPage * itemsPerPage + itemsPerPage
+    );
+    const allJobs = await Promise.all(
+      tempJobIds.map(
+        async (item) =>
+          await fetch(`${JOB_STORIES_DETAILS_API}${item}.json`).then((res) =>
+            res.json()
+          )
+      )
+    );
+    setJobs((prev)=>[...prev, ...allJobs]);
+    setBtnText("Load More");
+    setCurrentPage(prev=> prev+1)
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="container">
+        {!jobs.length && <h2>Please wait...</h2>}
+        {jobs.length > 0 &&
+          jobs.map((item, index) => (
+            <JobCard key={index} {...item} index={index} />
+          ))}
+        <button className="loadBtn" disabled={jobs.length === itemsIds.current.length} onClick={() => fetchJobs()}>
+          {btnText }
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
