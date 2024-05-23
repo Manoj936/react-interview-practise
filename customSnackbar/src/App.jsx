@@ -8,6 +8,17 @@ function App() {
     duration: 3000,
   };
 
+  const getRandomString= () =>{
+    const strings = [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ];
+  
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    return strings[randomIndex];
+  }
   return (
     <>
       <div className="container">
@@ -17,7 +28,7 @@ function App() {
             trigger({
               ...props,
               type: "success",
-              position: "top-left",
+              position: getRandomString(),
               message: "You are getting success",
             })
           }
@@ -30,7 +41,7 @@ function App() {
             trigger({
               ...props,
               type: "info",
-              position: "top-left",
+              position:  getRandomString(),
               message: "You are getting info",
             })
           }
@@ -43,7 +54,7 @@ function App() {
             trigger({
               ...props,
               type: "warning",
-              position: "bottom-right",
+              position:  getRandomString(),
               message: "You are getting warning",
             })
           }
@@ -56,7 +67,7 @@ function App() {
             trigger({
               ...props,
               type: "danger",
-              position: "bottom-left",
+              position:  getRandomString(),
               message: "You are getting danger",
             })
           }
