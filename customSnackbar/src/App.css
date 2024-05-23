@@ -1,0 +1,89 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  width: 80px;
+  height: 80px;
+  border: 1px solid gray;
+  background-color: aquamarine;
+  color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+  font-weight: 600;
+  margin: 1rem;
+}
+.snackbarContainer{
+  height: 40px;
+  position: absolute;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  border: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.icon{
+  font-size: 1.5rem;
+  margin-top:10px
+}
+.cancel{
+  font-size: large;
+  margin-top:10px
+}
+.message{
+  font-size: 1.2rem;
+}
+.bg-success {
+  background-color: green;
+  color:white;
+}
+.bg-info{
+  background-color: blue;
+  color:white;
+}
+.bg-warning{
+  background-color: orange;
+  color: white;
+}
+.bg-danger {
+  background-color: red;
+  color:white;
+}
+
+
+.top-left{
+  position: fixed;
+  top:20px;
+  left: 20px;
+  transition: 03ms ease-in;
+}
+.top-right{
+  position: fixed;
+  top:20;
+  right: 20;
+  transition: 03ms ease-in;
+}
+.bottom-left{
+  position: fixed;
+  bottom:20px;
+  left: 20px;
+  transition: 03ms ease-in;
+}
+.bottom-right{
+  position: fixed;
+  bottom:20px;
+  right: 20px;
+  transition: 03ms ease-in;
+}
