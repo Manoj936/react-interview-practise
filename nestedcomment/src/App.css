@@ -1,0 +1,59 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif'
+}
+h1{
+  font-family: 'tahoma';
+}
+.comment-box{
+  display: flex;
+  width: 98%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 5;
+}
+.cmnt-box {
+  width: 98%;
+  padding: 10px;
+}
+.cmnt-box:hover {
+  cursor: pointer;
+  border:1px solid #024082
+}
+.cmnt-container{
+  background-color: rgb(171, 255, 255);
+  font-size: x-small;
+  padding : 5px 5px;
+  border-left: 0.7px solid rgb(162, 162, 162);
+  padding-left: 1rem;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  font-family: 'tahoma';
+}
+
+.btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  margin-left: 1rem;
+}
+.btn:hover {
+  background-color: #024082;
+}
+.btn-action{
+  background-color:  #024082;
+  color: white;
+  padding: 3px 3px;
+  border:none;
+  border-radius: 3px;
+  margin-left:0.5rem;
+  width: 5rem;
+  height: 2rem;
+  font-weight: 500;
+}
+
+
+
