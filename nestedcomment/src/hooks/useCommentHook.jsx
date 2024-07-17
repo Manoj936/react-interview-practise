@@ -10,7 +10,7 @@ const useCommentHook = (initialComments) => {
       if (comment.id === commentId) {
         return {
           ...comment,
-          replies: [...comment.replies, content],
+          replies: [content , ...comment.replies],
         };
       } else if (comment.replies && comment.replies.length > 0) {
         return {
@@ -38,6 +38,7 @@ const useCommentHook = (initialComments) => {
       id: Date.now(),
       content,
       likes: 0,
+      dislikes:0,
       timestamp: new Date().toISOString(),
       replies: [],
     };

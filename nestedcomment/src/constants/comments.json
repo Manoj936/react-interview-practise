@@ -2,6 +2,7 @@
   {
     "id": 1,
     "content": "This is the first comment",
+    "postedBy":"Anonymous",
     "likes": 5,
     "dislikes": 5,
     "timestamp": "2024-06-16T10:00:00Z",
@@ -9,6 +10,7 @@
       {
         "id": 2,
         "content": "This is a reply to the first comment",
+        "postedBy":"Anonymous",
         "likes": 3,
         "dislikes": 5,
         "timestamp": "2024-06-16T11:00:00Z",
@@ -17,6 +19,7 @@
       {
         "id": 3,
         "content": "This is another reply to the first comment",
+        "postedBy":"Anonymous",
         "likes": 8,
         "dislikes": 5,
         "timestamp": "2024-06-16T12:00:00Z",
@@ -27,6 +30,7 @@
   {
     "id": 4,
     "content": "This is the second comment",
+    "postedBy":"Anonymous",
     "likes": 10,
     "dislikes": 5,
     "timestamp": "2024-06-16T09:00:00Z",
@@ -34,6 +38,7 @@
       {
         "id": 5,
         "content": "This is a reply to the second comment",
+        "postedBy":"Anonymous",
         "likes": 4,
         "dislikes": 5,
         "timestamp": "2024-06-16T09:30:00Z",
@@ -41,6 +46,7 @@
           {
             "id": 6,
             "content": "This is a nested reply to the reply",
+            "postedBy":"Anonymous",
             "likes": 2,
             "dislikes": 5,
             "timestamp": "2024-06-16T09:45:00Z",
@@ -53,6 +59,7 @@
   {
     "id": 7,
     "content": "This is the third comment",
+    "postedBy":"Anonymous",
     "likes": 1,
     "dislikes": 5,
     "timestamp": "2024-06-16T08:00:00Z",
@@ -61,6 +68,7 @@
   {
     "id": 8,
     "content": "This is the fourth comment",
+    "postedBy":"Anonymous",
     "likes": 7,
     "dislikes": 5,
     "timestamp": "2024-06-16T07:00:00Z",
@@ -68,6 +76,7 @@
       {
         "id": 9,
         "content": "This is a reply to the fourth comment",
+        "postedBy":"Anonymous",
         "likes": 5,
         "dislikes": 5,
         "timestamp": "2024-06-16T07:30:00Z",
@@ -78,6 +87,7 @@
   {
     "id": 10,
     "content": "This is the fifth comment",
+    "postedBy":"Anonymous",
     "likes": 3,
     "dislikes": 5,
     "timestamp": "2024-06-16T06:00:00Z",
@@ -86,6 +96,7 @@
   {
     "id": 11,
     "content": "This is the sixth comment",
+    "postedBy":"Anonymous",
     "likes": 2,
     "dislikes": 5,
     "timestamp": "2024-06-15T10:00:00Z",
@@ -94,6 +105,7 @@
   {
     "id": 12,
     "content": "This is the seventh comment",
+    "postedBy":"Anonymous",
     "likes": 9,
     "dislikes": 5,
     "timestamp": "2024-06-15T09:00:00Z",
@@ -102,6 +114,7 @@
   {
     "id": 13,
     "content": "This is the eighth comment",
+    "postedBy":"Anonymous",
     "likes": 6,
     "dislikes": 5,
     "timestamp": "2024-06-15T08:00:00Z",
@@ -110,6 +123,7 @@
   {
     "id": 14,
     "content": "This is the ninth comment",
+    "postedBy":"Anonymous",
     "likes": 4,
     "dislikes": 5,
     "timestamp": "2024-06-15T07:00:00Z",
@@ -118,6 +132,7 @@
   {
     "id": 15,
     "content": "This is the tenth comment",
+    "postedBy":"Anonymous",
     "likes": 5,
     "dislikes": 5,
     "timestamp": "2024-06-15T06:00:00Z",

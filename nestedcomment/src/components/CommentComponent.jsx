@@ -17,7 +17,7 @@ const CommentComponent = ({ comment, addLikes, addReply, removeCmnt , addDislike
   };
   return (
     <div key={comment.id} className="cmnt-container">
-      <h2>{comment.content}</h2>
+      <h2>{comment.content}  <strong>👤<small> <i> {comment.postedBy}</i></small></strong></h2>
 
       <h4>Likes : {comment?.likes} </h4>
       <h4>Dislikes : {comment?.dislikes} </h4>
