@@ -1,0 +1,70 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+}
+.container {
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+.form {
+  width: 100%;
+  padding: 5px 5px;
+}
+.range {
+  width: 100%;
+ 
+}
+.conditions{
+  display: grid;
+}
+.lengthLable {
+  margin-bottom: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkBoxContainer{
+  margin-top: 2rem;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 20;
+  flex-wrap: wrap;
+}
+.checkBox{
+  padding: 10px;
+}
+.submitbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+}
+.passwordsec{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.submitbtn button{
+  width: 8rem;
+  height: 3rem;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+  color:black;
+  cursor: pointer;
+  font-weight: 600;
+}

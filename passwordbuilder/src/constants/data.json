@@ -1,0 +1,6 @@
+[
+  { "title": "Include Capital Letter", "status": false },
+  { "title": "Include Special Character", "status": false },
+  { "title": "Include small Letter", "status": false },
+  { "title": "Include Number", "status": false }
+]
