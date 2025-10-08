@@ -8,9 +8,9 @@ export default function CinemaHall({
     aislePosition: 4,
   },
   seatTypes = {
-    silver: { name: "Silver", price: 100, rows: [0, 1, 2 , 3,4,5] },
-    gold: { name: "Gold", price: 200, rows: [6,7,8,9,10] },
-    diamond: { name: "Diamond", price: 300, rows: [11,12,13,14] },
+    silver: { name: "Silver", price: 100, rows: [0, 1, 2, 3, 4, 5] },
+    gold: { name: "Gold", price: 200, rows: [6, 7, 8, 9, 10] },
+    diamond: { name: "Diamond", price: 300, rows: [11, 12, 13, 14] },
   },
   bookedSeats = ["C1", "C2", "B1", "B2"],
 }) {
@@ -76,24 +76,30 @@ export default function CinemaHall({
 
   const bookTickets = () => {
     if (selectedSeats.length === 0) return;
-    setAllBookedSeats((prev) => Array.from(new Set([...prev, ...selectedSeats])));
+    setAllBookedSeats((prev) =>
+      Array.from(new Set([...prev, ...selectedSeats]))
+    );
     setSeats((prev) =>
       prev.map((s) =>
-        selectedSeats.includes(s.id) ? { ...s, isBooked: true, isSelected: false } : s
+        selectedSeats.includes(s.id)
+          ? { ...s, isBooked: true, isSelected: false }
+          : s
       )
     );
     setSelectedSeats([]);
   };
 
   function calculateTotalPrice() {
-
-  return selectedSeats.reduce((sum , id)=>{
-    const found = seat.find((i)=>i.id === id);
-    return sum + (found ? found.price : 0)
-  },0)
+    return selectedSeats.reduce((sum, id) => {
+      const found = seat.find((i) => i.id === id);
+      return sum + (found ? found.price : 0);
+    }, 0);
   }
 
-  const totalPrice = useMemo(() => calculateTotalPrice(), [selectedSeats, seat]);
+  const totalPrice = useMemo(
+    () => calculateTotalPrice(),
+    [selectedSeats, seat]
+  );
   console.log(selectedSeats);
   const RenderSeats = ({ rowIndex }) => {
     return (
@@ -106,13 +112,12 @@ export default function CinemaHall({
           const isAisle = colIndex + 1 === layout.aislePosition;
           const base =
             "w-10 h-10 p-1 rounded text-xs flex justify-center items-center select-none";
-        
-            const colorCls = seatObj.isSelected
+
+          const colorCls = seatObj.isSelected
             ? "bg-green-700 text-white"
             : seatObj.isBooked
-              ? "bg-gray-400 text-white cursor-not-allowed"
-              : seatObj.colorClass;
-     
+            ? "bg-gray-400 text-white cursor-not-allowed"
+            : seatObj.colorClass;
 
           return (
             <React.Fragment key={seatObj.id}>
@@ -132,11 +137,11 @@ export default function CinemaHall({
   };
   return (
     <div className="flex flex-row justify-center items-center w-full">
-      <div className="w-[50%] max-w-[640px] ">
+      <div className="w-[50%] max-w-[640px]  ">
         <div className="w-full text-center text-xs tracking-widest mb-4 opacity-70">
           SCREEN
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3 overflow-y-auto max-h-[500px] ">
           {Array.from({ length: layout.rows }).map((_, rowIdx) => (
             <div key={rowIdx} className="flex items-center gap-3">
               <div className="w-6 text-sm text-right">
@@ -156,27 +161,29 @@ export default function CinemaHall({
           </div>
         </div>
       </div>
+
       <div className="w-[50%] max-w-[640px]">
         <div className="w-full text-center text-lg tracking-widest mb-4 opacity-70">
           DETAILS
         </div>
         {/* Helper */}
+        
+          <div className="space-y-3 w-full text-center text-sm tracking-widest">
+            <div>
+              You have selected :<strong> {selectedSeats.length > 0 ? selectedSeats.toString() : ''}</strong>
+            </div>
+            <div>
+              Your Final Ammount : <strong>{selectedSeats.length > 0 ? totalPrice : ''}</strong>
+            </div>
 
-        <div className="space-y-3 w-full text-center text-sm tracking-widest">
-          <div>
-            You have selected :<strong>{selectedSeats.toString()}</strong>
+            <button
+              onClick={bookTickets}
+              className=" bg-red-400 h-14 w-md rounded-xl px-4 py-1 text-white font-extrabold text-xl"
+            >
+              Confirm Booking
+            </button>
           </div>
-          <div>
-            Your Final Ammount : <strong>{totalPrice}</strong>
-          </div>
-
-          <button
-            onClick={bookTickets}
-            className=" bg-red-400 h-14 w-md rounded-xl px-4 py-1 text-white font-extrabold text-xl"
-          >
-            Confirm Booking
-          </button>
-        </div>
+        
       </div>
     </div>
   );
