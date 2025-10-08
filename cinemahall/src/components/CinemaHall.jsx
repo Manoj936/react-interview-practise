@@ -3,14 +3,14 @@ import { colorClasses } from "../constant";
 
 export default function CinemaHall({
   layout = {
-    rows: 8,
-    seatsPerRow: 9,
-    aislePosition: 2,
+    rows: 15,
+    seatsPerRow: 12,
+    aislePosition: 4,
   },
   seatTypes = {
-    silver: { name: "Silver", price: 100, rows: [0, 1, 2] },
-    gold: { name: "Gold", price: 200, rows: [3, 4, 5] },
-    diamond: { name: "Diamond", price: 150, rows: [6, 7] },
+    silver: { name: "Silver", price: 100, rows: [0, 1, 2 , 3,4,5] },
+    gold: { name: "Gold", price: 200, rows: [6,7,8,9,10] },
+    diamond: { name: "Diamond", price: 300, rows: [11,12,13,14] },
   },
   bookedSeats = ["C1", "C2", "B1", "B2"],
 }) {
