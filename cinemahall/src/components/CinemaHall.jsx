@@ -109,7 +109,7 @@ export default function CinemaHall({
             (s) => s.row === rowIndex && s.seat === colIndex
           );
           if (!seatObj) return null;
-          const isAisle = colIndex + 1 === layout.aislePosition;
+          const isAisle = colIndex + 1 === (layout.aislePosition ? layout.aislePosition  :  5 );
           const base =
             "w-10 h-10 p-1 rounded text-xs flex justify-center items-center select-none";
 
