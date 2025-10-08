@@ -154,7 +154,7 @@ export default function CinemaHall({
           <div className="flex flex-row flex-wrap items-center gap-4 mt-10 ml-5">
             {Object.entries(colorClasses).map(([label, cls]) => (
               <div key={label} className="flex items-center gap-2">
-                <div className={`w-4 h-4 rounded border ${cls}`} />
+                <div className={`w-4 h-4 rounded-xl  ${cls}`} />
                 <span className="text-xs">{label}</span>
               </div>
             ))}
