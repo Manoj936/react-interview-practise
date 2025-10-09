@@ -5,7 +5,7 @@ export default function CinemaHall({
   layout = {
     rows: 15,
     seatsPerRow: 12,
-    aislePosition: 4,
+    aislePosition: [3, 9],
   },
   seatTypes = {
     silver: { name: "Silver", price: 100, rows: [0, 1, 2, 3, 4, 5] },
@@ -13,6 +13,8 @@ export default function CinemaHall({
     diamond: { name: "Diamond", price: 300, rows: [11, 12, 13, 14] },
   },
   bookedSeats = ["C1", "C2", "B1", "B2"],
+  wheelChairSeats = ["L12", "M12", "N12", "O12"],
+  wheelChairIcon = "♿",
 }) {
   const getSeatInfo = (row) => {
     const types = Object.keys(seatTypes);
@@ -109,7 +111,7 @@ export default function CinemaHall({
             (s) => s.row === rowIndex && s.seat === colIndex
           );
           if (!seatObj) return null;
-          const isAisle = colIndex + 1 === (layout.aislePosition ? layout.aislePosition  :  5 );
+          const isAisle = layout.aislePosition.includes(colIndex + 1);
           const base =
             "w-10 h-10 p-1 rounded text-xs flex justify-center items-center select-none";
 
@@ -124,9 +126,15 @@ export default function CinemaHall({
               <button
                 onClick={() => selectSeat(seatObj)}
                 className={`${base}  ${colorCls}`}
-                title={`${seatObj.id} • ${seatObj.type} • ₹${seatObj.price}`}
+                title={`${seatObj.id} • ${seatObj.type} • ₹${seatObj.price} ${
+                  wheelChairSeats.includes(seatObj.id)
+                    ? `• ${wheelChairIcon}`
+                    : ""
+                }`}
               >
-                {seatObj.id}
+                {wheelChairSeats.includes(seatObj.id)
+                  ? wheelChairIcon + seatObj.id
+                  : seatObj.id}
               </button>
               {isAisle && <div className="w-6" />}
             </React.Fragment>
@@ -137,7 +145,7 @@ export default function CinemaHall({
   };
   return (
     <div className="flex flex-row justify-center items-center w-full">
-      <div className="w-[50%] max-w-[640px]  ">
+      <div className="w-[50%] text-right items-right justify-end ">
         <div className="w-full text-center text-xs tracking-widest mb-4 opacity-70">
           SCREEN
         </div>
@@ -162,28 +170,32 @@ export default function CinemaHall({
         </div>
       </div>
 
-      <div className="w-[50%] max-w-[640px]">
+      <div className="w-[40%] ">
         <div className="w-full text-center text-lg tracking-widest mb-4 opacity-70">
           DETAILS
         </div>
         {/* Helper */}
-        
-          <div className="space-y-3 w-full text-center text-sm tracking-widest">
-            <div>
-              You have selected :<strong> {selectedSeats.length > 0 ? selectedSeats.toString() : ''}</strong>
-            </div>
-            <div>
-              Your Final Ammount : <strong>{selectedSeats.length > 0 ? totalPrice : ''}</strong>
-            </div>
 
-            <button
-              onClick={bookTickets}
-              className=" bg-red-400 h-14 w-md rounded-xl px-4 py-1 text-white font-extrabold text-xl"
-            >
-              Confirm Booking
-            </button>
+        <div className="space-y-3 w-full text-center text-sm tracking-widest">
+          <div>
+            You have selected :
+            <strong>
+              {" "}
+              {selectedSeats.length > 0 ? selectedSeats.toString() : ""}
+            </strong>
           </div>
-        
+          <div>
+            Your Final Ammount :{" "}
+            <strong>{selectedSeats.length > 0 ? totalPrice : ""}</strong>
+          </div>
+
+          <button
+            onClick={bookTickets}
+            className=" bg-red-400 h-14 w-md rounded-xl px-4 py-1 text-white font-extrabold text-xl"
+          >
+            Confirm Booking
+          </button>
+        </div>
       </div>
     </div>
   );
