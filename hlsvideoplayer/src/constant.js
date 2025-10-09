@@ -1,0 +1,1 @@
+export const videoUrl = 'https://ik.imagekit.io/mkmdesign/Videos/iPhone%20Air%20vs%20iPhone%2017%20vs%20iPhone%2017%20Pro%20Max_%20The%20Ultimate%20Battery%20Drain%20Test!%20_%20(1).mp4?updatedAt=1760004777973/'
